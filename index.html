@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FEFFEF">
+  <title>Junmi | Animation Portfolio</title>
+  <meta name="description" content="Junmi 的動畫與視覺敘事個人作品集 — 2D 動畫、After Effects 動態設計、數位繪圖與視覺實驗。">
+
+  <!-- Google Fonts: Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Favicon (SVG 內嵌免額外檔案) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23FF8D8D'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-size='56' fill='%233B1B26' font-family='sans-serif' font-weight='900'>✳</text></svg>">
+
+    <!-- 外部樣式表 (CSS) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 懸浮星光畫布 (滑鼠移動拖尾與點擊爆發) -->
+  <canvas id="starTrailCanvas" aria-hidden="true"></canvas>
+
+  <!-- ===== 導覽列 ===== -->
+  <header id="mainHeader">
+    <nav class="container">
+      <a href="#home" class="logo">
+        JUNMI<span>✳</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">專長</a></li>
+        <li><a href="#works">作品</a></li>
+        <li><a href="#journey">歷程</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切換深色模式" aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+        <span id="themeLabel">深色</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== 首頁 ===== -->
+    <section id="home">
+      <div class="container hero">
+
+        <div class="hero-text">
+          <div class="eyebrow">
+            ANIMATION · ART · STORYTELLING
+          </div>
+
+          <h1>
+            讓想像動起來，<br>
+            <span>frame by frame.</span>
+          </h1>
+
+          <p>
+            你好，我是 Junmi。<br>
+            一位熱愛 2D 動畫、動態影像與視覺敘事的學生。
+          </p>
+
+          <a href="#works" class="btn">
+            探索我的作品 ↘
+          </a>
+        </div>
+
+        <div class="hero-visual" aria-label="抽象色彩藝術裝飾">
+          <div class="blob"></div>
+          <div class="hero-sticker">
+            KEEP CREATING !
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 關於我 ===== -->
+    <section id="about">
+      <div class="container reveal">
+
+        <div class="eyebrow">A LITTLE ABOUT ME</div>
+        <h2 class="section-title">關於<span>我</span></h2>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+            <p>
+              我是多媒體動畫系的學生，主要學習 2D 電腦動畫
+              及 After Effects 動畫，對動畫製作抱有極大的熱情。
+            </p>
+
+            <br>
+
+            <p>
+              我希望透過不斷創作與學習，探索不同的視覺風格，
+              並走訪各地汲取靈感，將觀察到的事物轉化為
+              具有個人特色的作品。
+            </p>
+
+            <br>
+
+            <p>
+              對我而言，動畫不只是畫面移動，
+              更是將想像、情緒與故事轉化成視覺語言的方式。
+            </p>
+          </div>
+
+          <div class="about-card">
+            <div class="deco-label">MY CREATIVE VISION</div>
+
+            <h3>用畫面說故事。</h3>
+
+            <p>
+              以畫面傳遞情緒，以動態訴說故事。
+              持續累積作品，探索動畫與視覺敘事的更多可能。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 專長技能 ===== -->
+    <section id="skills">
+      <div class="container reveal">
+
+        <div class="eyebrow">WHAT I DO</div>
+        <h2 class="section-title">專長<span>技能</span></h2>
+
+        <div class="skills-grid">
+
+          <article class="skill-card">
+            <div class="skill-number">01 / ANIMATION</div>
+            <h3>2D 電腦動畫</h3>
+            <p>
+              學習 2D 動畫製作、角色動態、
+              畫面節奏與視覺敘事。
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">02 / MOTION</div>
+            <h3>After Effects</h3>
+            <p>
+              自學 AE 動畫，練習關鍵影格、
+              動態設計、循環動畫與視覺特效。
+            </p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-number">03 / ILLUSTRATION</div>
+            <h3>數位繪圖</h3>
+            <p>
+              透過數位繪圖進行插畫創作、
+              角色設計與視覺風格探索。
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 精選作品 ===== -->
+    <section id="works">
+      <div class="container reveal">
+
+        <div class="eyebrow">SELECTED WORKS</div>
+        <h2 class="section-title">精選<span>作品</span></h2>
+
+        <p class="works-intro">
+          每一份作品，都是一次新的嘗試與探索。（點擊卡片可查看詳細說明或觀看影片）
+        </p>
+
+        <div class="works-grid">
+
+          <!-- 作品一：2D 動畫 -->
+          <article class="work-card" onclick="openWorkModal(0)">
+            <div class="work-image">
+              <img src="./thumb-2d.jpg"
+                onerror="handleImgError(this, 'thumb-2d.jpg', 'https://img.youtube.com/vi/kF-eNTpA4yY/hqdefault.jpg')"
+                alt="2D 動畫作品封面" loading="lazy">
+              <span>2D ANIMATION</span>
+            </div>
+
+            <div class="work-info">
+              <h3>2D 動畫作品</h3>
+              <p>
+                展示角色動態、場景演出與動畫練習。
+              </p>
+
+              <span class="tag">2D Animation</span>
+              <span class="tag">Storytelling</span>
+            </div>
+          </article>
+
+          <!-- 作品二：AE 動態設計 -->
+          <article class="work-card" onclick="openWorkModal(1)">
+            <div class="work-image">
+              <img src="./thumb-ae-1.jpg"
+                onerror="handleImgError(this, 'thumb-ae-1.jpg', 'https://img.youtube.com/vi/QnOMhfVs3no/hqdefault.jpg')"
+                alt="After Effects 動態設計封面" loading="lazy">
+              <span>AFTER EFFECTS</span>
+            </div>
+
+            <div class="work-info">
+              <h3>AE 動態設計</h3>
+              <p>
+                展示文字動畫、循環動畫與動態視覺效果。
+              </p>
+
+              <span class="tag">After Effects</span>
+              <span class="tag">Motion Design</span>
+            </div>
+          </article>
+
+          <!-- 作品三：數位繪圖 -->
+          <article class="work-card" onclick="openWorkModal(2)">
+            <div class="work-image">
+              <img src="./chibi-palette.jpg" onerror="handleImgError(this, 'chibi-palette.jpg')" alt="數位繪圖作品"
+                loading="lazy">
+              <span>DIGITAL ART</span>
+            </div>
+
+            <div class="work-info">
+              <h3>數位繪圖</h3>
+              <p>
+                角色插畫、概念設計與個人繪圖創作。
+              </p>
+
+              <span class="tag">Illustration</span>
+              <span class="tag">Digital Art</span>
+            </div>
+          </article>
+
+          <!-- 作品四：視覺實驗 -->
+          <article class="work-card" onclick="openWorkModal(3)">
+            <div class="work-image">
+              <img src="./odyssey-express.jpg" onerror="handleImgError(this, 'odyssey-express.jpg')"
+                alt="Odyssey Express 視覺作品" loading="lazy">
+              <span>VISUAL EXPERIMENT</span>
+            </div>
+
+            <div class="work-info">
+              <h3>視覺實驗</h3>
+              <p>
+                探索不同的構圖、色彩與視覺表現方式。
+              </p>
+
+              <span class="tag">Experiment</span>
+              <span class="tag">Visual Art</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 學習歷程 ===== -->
+    <section id="journey">
+      <div class="container reveal">
+
+        <div class="eyebrow">MY JOURNEY</div>
+        <h2 class="section-title">學習<span>歷程</span></h2>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <h3>自學 After Effects</h3>
+            <p>
+              主動學習 AE 動畫製作，
+              練習關鍵影格、動態效果與循環動畫。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>持續累積創作</h3>
+            <p>
+              透過課堂作業與個人練習累積作品，
+              持續嘗試不同的動畫與視覺風格。
+            </p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>探索更多創作可能</h3>
+            <p>
+              持續精進動畫技巧，從日常生活、
+              不同文化與旅行經驗中汲取創作靈感。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 聯絡我 ===== -->
+    <section id="contact">
+      <div class="container reveal">
+
+        <div class="contact-box">
+          <div class="eyebrow">LET'S CONNECT</div>
+
+          <h2 class="section-title">
+            與我<span>聯絡</span>
+          </h2>
+
+          <p>
+            如果你對我的作品有興趣，歡迎與我聯絡。
+          </p>
+
+          <div class="contact-links">
+
+            <a href="mailto:junmiouo@gmail.com">
+              ✉ junmiouo@gmail.com
+            </a>
+
+            <a href="tel:0965101729">
+              ☎ 0965101729
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 作品彈窗 Modal ===== -->
+  <div class="modal-overlay" id="workModal" onclick="closeWorkModalOnOverlay(event)" role="dialog" aria-modal="true"
+    aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeWorkModal()" aria-label="關閉作品視窗">&times;</button>
+
+      <div class="eyebrow" id="modalCategory">PROJECT DETAILS</div>
+      <h2 id="modalTitle" style="font-size: 26px; font-weight: 900; margin-bottom: 6px;">作品名稱</h2>
+      <div id="modalTags" class="tag-container" style="display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0;"></div>
+
+      <div id="modalMedia">
+        <!-- 動態置入 YouTube 播放器、圖片或畫廊 -->
+      </div>
+
+      <p class="modal-description" id="modalDesc">作品詳細描述內容...</p>
+
+      <div class="modal-meta">
+        <div class="modal-meta-item">
+          <strong>使用工具：</strong><span id="modalTools">After Effects, Photoshop</span>
+        </div>
+        <div class="modal-meta-item">
+          <strong>創作角色：</strong><span id="modalRole">動畫製作 / 動態設計</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 回頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    aria-label="回到最上方">↑</button>
+
+  <!-- ===== 頁尾 ===== -->
+  <footer>
+    <p>
+      © <span id="year"></span>
+      <span>JUNMI</span> · ANIMATION PORTFOLIO
+    </p>
+  </footer>
+
+  <!-- ===== JavaScript ===== -->
+    <!-- 外部腳本 (JavaScript) -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
