@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#F4ECD8">
+  <title>潘湜瀅 / 君米 Junmi | 動畫與美術設計作品集</title>
+  <meta name="description" content="潘湜瀅（君米 / Junmi）的個人作品集 — 美式復古拼貼風格、角色設計、故事編劇、元件動畫與分鏡創作。">
+
+  <!-- Google Fonts: Noto Sans TC + Noto Serif TC + Playfair Display + Courier Prime -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- Favicon (SVG 內嵌免額外檔案) -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23D94E34'/><rect x='6' y='6' width='88' height='88' rx='12' fill='none' stroke='%23F4ECD8' stroke-width='3' stroke-dasharray='6 4'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-size='52' fill='%23F4ECD8' font-family='serif'>✳</text></svg>">
+
+  <!-- 外部樣式表 (CSS) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- 微妙紙張紋理濾鏡 -->
+  <svg class="sr-only" aria-hidden="true" width="0" height="0">
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </svg>
+
+  <!-- 懸浮星光畫布 (柔和復古星點拖尾) -->
+  <canvas id="starTrailCanvas" aria-hidden="true"></canvas>
+
+  <!-- ===== 導覽列 ===== -->
+  <header id="mainHeader">
+    <nav class="container">
+      <a href="#home" class="logo" aria-label="回到首頁">
+        <span class="logo-stamp">JUNMI ✳</span>
+        <span class="logo-sub">潘湜瀅 / 君米</span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="開啟導覽選單" aria-expanded="false">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#skills">專長</a></li>
+        <li><a href="#works">作品</a></li>
+        <li><a href="#diary">生活紀錄</a></li>
+        <li><a href="#goals">目標</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切換深色模式" aria-pressed="false">
+        <span id="themeIcon" aria-hidden="true">🌙</span>
+        <span id="themeLabel">夜間紙張</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== 01｜首頁 HOME ===== -->
+    <section id="home">
+      <div class="container hero">
+
+        <div class="hero-text">
+          <div class="hero-meta-strip">
+            <span class="issue-badge">ISSUE NO. 01 · PORTFOLIO</span>
+            <span class="meta-divider">/</span>
+            <span class="meta-name">潘湜瀅 · 君米</span>
+          </div>
+
+          <p class="hero-kicker">AMERICAN RETRO COLLAGE · CHARACTER &amp; STORY</p>
+
+          <h1>
+            我屬於我自己<br>
+            人生中的<span class="highlight-word">獨角</span>。
+          </h1>
+
+          <p class="hero-lead">
+            你好，我是 <strong>潘湜瀅（君米）</strong>。<br>
+            就讀多媒體動畫系，擅長前期角色設計、故事編劇、元件動畫與分鏡。用美式復古拼貼與剪報般的視覺節奏，記錄每一個從腦海跳躍到畫紙上的靈感。
+          </p>
+
+          <div class="hero-actions">
+            <a href="#works" class="btn btn-primary">
+              探索我的作品 <span aria-hidden="true">↘</span>
+            </a>
+            <a href="#about" class="btn btn-secondary">
+              翻開關於我
+            </a>
+          </div>
+
+          <div class="hero-footnote">
+            <span>★ 2D 動畫 / 美術設計</span>
+            <span>★ Clip Studio Paint &amp; AE</span>
+            <span>★ 視覺敘事</span>
+          </div>
+        </div>
+
+        <!-- 首頁主視覺：美式復古拼貼相框 -->
+        <div class="hero-visual" aria-label="個人插畫主視覺拼貼">
+          <div class="collage-layer layer-kraft" aria-hidden="true"></div>
+          <div class="collage-layer layer-newsprint" aria-hidden="true">
+            <span>ARCHIVE · 2026 · ORIGINAL ART ·</span>
+          </div>
+
+          <figure class="polaroid-frame">
+            <span class="masking-tape tape-a" aria-hidden="true"></span>
+            <span class="masking-tape tape-b" aria-hidden="true"></span>
+
+            <div class="polaroid-window">
+              <img src="./hero-illustration.jpg" alt="潘湜瀅 / 君米的個人照片"
+                onerror="handleHeroIllustrationError(this)">
+            </div>
+
+            <figcaption class="polaroid-caption">
+              <div>
+                <span class="cap-title">ME &amp; UNICORN</span>
+                <small class="cap-sub">Pan Shih-Ying / Junmi</small>
+              </div>
+              <span class="stamp-seal" aria-hidden="true">✳<br>UNICORN</span>
+            </figcaption>
+          </figure>
+
+          <div class="collage-ticket-tag" aria-hidden="true">
+            KEEP CREATING !
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 02｜關於我 ABOUT ===== -->
+    <section id="about">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-num">02</span>
+          <div>
+            <div class="eyebrow">A LITTLE ABOUT ME</div>
+            <h2 class="section-title">關於我 <em>About Junmi</em></h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+
+          <!-- 筆記本紙張：自我介紹 + 興趣與特點 -->
+          <div class="notebook-sheet">
+            <span class="masking-tape tape-top-mid" aria-hidden="true"></span>
+
+            <div class="about-story">
+              <p>
+                小時候的我熱衷於看動畫，腦袋裡就會充滿了很多的想法，想到的畫面都會立刻畫出來，這也是影響我的一個創作習慣。
+              </p>
+              <p>
+                畫圖這條路，國中技藝班也給我了很大的推力，當時獲得了<mark>北區技能競賽的電腦繪圖組第五名</mark>，對畫圖更有自信，作為跳板而進去了高職的動畫科。
+              </p>
+              <p>
+                以創作來說，我更擅長前期的<strong>角色設計</strong>和<strong>故事構想</strong>，我也多次在團隊活動中擔任<strong>組長和編劇</strong>，同時負責監督作品的美術風格。將來希望能從事美術設計相關的工作。
+              </p>
+            </div>
+
+            <div class="traits-divider"></div>
+
+            <div class="about-traits-grid">
+              <div class="traits-block">
+                <h3 class="mini-label">PERSONAL INTERESTS · 個人興趣</h3>
+                <div class="stamp-tags">
+                  <span class="stamp-tag">畫圖</span>
+                  <span class="stamp-tag">看天空</span>
+                  <span class="stamp-tag">閱讀漫畫</span>
+                  <span class="stamp-tag">同人小說</span>
+                </div>
+              </div>
+
+              <div class="traits-block">
+                <h3 class="mini-label">CHARACTER TRAITS · 個性特點</h3>
+                <div class="stamp-tags">
+                  <span class="stamp-tag teal">觀察力強</span>
+                  <span class="stamp-tag teal">除錯能力</span>
+                  <span class="stamp-tag teal">問題解決能力</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右側：復古檔案卡 + 創作理念便條 -->
+          <aside class="about-sidebar">
+            <div class="dossier-card">
+              <div class="dossier-header">
+                <span>CREATOR DOSSIER</span>
+                <span>NO. 20</span>
+              </div>
+
+              <h3>潘湜瀅 / 君米</h3>
+
+              <dl class="dossier-list">
+                <div>
+                  <dt>年齡</dt>
+                  <dd>20 歲</dd>
+                </div>
+                <div>
+                  <dt>高中學歷</dt>
+                  <dd>多媒體動畫科</dd>
+                </div>
+                <div>
+                  <dt>大學學歷</dt>
+                  <dd>多媒體動畫系</dd>
+                </div>
+                <div>
+                  <dt>團隊定位</dt>
+                  <dd>組長 / 編劇 / 美術監督</dd>
+                </div>
+              </dl>
+
+              <div class="ribbon-award">
+                <span aria-hidden="true">★</span>
+                <span>北區技能競賽 電腦繪圖組 第五名</span>
+              </div>
+            </div>
+
+            <div class="pinned-memo">
+              <span class="pin-dot" aria-hidden="true"></span>
+              <div class="memo-kicker">CREATIVE VISION</div>
+              <h4>把腦海裡的畫面，變成有溫度的故事。</h4>
+              <p>
+                從角色設定、世界觀構想到整體美術統籌，持續累積屬於自己的原創視覺語言。
+              </p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 03｜專長技能 SKILLS ===== -->
+    <section id="skills">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-num">03</span>
+          <div>
+            <div class="eyebrow">WHAT I DO</div>
+            <h2 class="section-title">專長技能 <em>Capabilities</em></h2>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+
+          <article class="index-card accent-red">
+            <div class="index-tab">SKILL · 01</div>
+            <h3>畫圖、美編、排版</h3>
+            <p>
+              從角色插畫到視覺美編與版面編排，注重色彩平衡與畫面張力，為作品建立鮮明一致的美術氣質。
+            </p>
+          </article>
+
+          <article class="index-card accent-ochre">
+            <div class="index-tab">SKILL · 02</div>
+            <h3>觀察、修改、提出問題</h3>
+            <p>
+              具備敏銳的觀察力與除錯思維，能在製作流程中快速捕捉細節盲點、提出關鍵問題並確實修正優化。
+            </p>
+          </article>
+
+          <article class="index-card accent-denim">
+            <div class="index-tab">SKILL · 03</div>
+            <h3>元件動畫、分鏡</h3>
+            <p>
+              結合前期故事構想與分鏡節奏規劃，並運用元件動畫讓角色表演與視覺敘事更加生動流暢。
+            </p>
+          </article>
+
+        </div>
+
+        <!-- 工具與進修拼貼條 -->
+        <div class="tools-specimen">
+          <div class="specimen-col">
+            <span class="mini-label">SOFTWARE USED · 使用軟體</span>
+            <div class="specimen-chips">
+              <span class="spec-chip">Clip Studio Paint</span>
+              <span class="spec-chip">After Effects (AE)</span>
+            </div>
+          </div>
+
+          <div class="specimen-sep" aria-hidden="true"></div>
+
+          <div class="specimen-col">
+            <span class="mini-label">NEXT TO LEARN · 未來想學習的技能</span>
+            <div class="specimen-chips">
+              <span class="spec-chip outline">+ 3D 製作</span>
+              <span class="spec-chip outline">+ 網頁設計</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 04｜作品展示 WORKS ===== -->
+    <section id="works">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-num">04</span>
+          <div>
+            <div class="eyebrow">SELECTED WORKS</div>
+            <h2 class="section-title">作品展示 <em>Archive</em></h2>
+          </div>
+        </div>
+
+        <p class="section-lead">
+          每一份作品，都是一次角色、故事與視覺風格的實驗。點擊卡片可查看詳細介紹與影片。
+        </p>
+
+        <div class="works-grid">
+
+          <!-- 作品一：2D 動畫 -->
+          <article class="print-card" onclick="openWorkModal(0)" tabindex="0" role="button"
+            onkeydown="handleCardKeydown(event, 0)">
+            <div class="print-frame">
+              <img src="./thumb-2d.jpg"
+                onerror="handleImgError(this, 'thumb-2d.jpg', 'https://img.youtube.com/vi/kF-eNTpA4yY/hqdefault.jpg')"
+                alt="2D 動畫作品封面" loading="lazy">
+            </div>
+
+            <div class="print-body">
+              <div class="print-meta">
+                <span>01 / 2D ANIMATION</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <h3>2D 動畫作品</h3>
+              <p>展示角色動態、場景演出與動畫練習。</p>
+              <div class="print-tags">
+                <span>2D Animation</span>
+                <span>Storytelling</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 作品二：AE 動態設計 -->
+          <article class="print-card" onclick="openWorkModal(1)" tabindex="0" role="button"
+            onkeydown="handleCardKeydown(event, 1)">
+            <div class="print-frame">
+              <img src="./thumb-ae-1.jpg"
+                onerror="handleImgError(this, 'thumb-ae-1.jpg', 'https://img.youtube.com/vi/QnOMhfVs3no/hqdefault.jpg')"
+                alt="After Effects 動態設計封面" loading="lazy">
+            </div>
+
+            <div class="print-body">
+              <div class="print-meta">
+                <span>02 / AFTER EFFECTS</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <h3>AE 動態設計</h3>
+              <p>展示文字動畫、循環動畫與動態視覺效果。</p>
+              <div class="print-tags">
+                <span>After Effects</span>
+                <span>Motion Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 作品三：數位繪圖 -->
+          <article class="print-card" onclick="openWorkModal(2)" tabindex="0" role="button"
+            onkeydown="handleCardKeydown(event, 2)">
+            <div class="print-frame">
+              <img src="./chibi-palette.jpg" onerror="handleImgError(this, 'chibi-palette.jpg')" alt="數位繪圖作品"
+                loading="lazy">
+            </div>
+
+            <div class="print-body">
+              <div class="print-meta">
+                <span>03 / DIGITAL ART</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <h3>數位繪圖</h3>
+              <p>角色插畫、概念設計與個人繪圖創作。</p>
+              <div class="print-tags">
+                <span>Clip Studio Paint</span>
+                <span>Character Design</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- 作品四：視覺實驗 -->
+          <article class="print-card" onclick="openWorkModal(3)" tabindex="0" role="button"
+            onkeydown="handleCardKeydown(event, 3)">
+            <div class="print-frame">
+              <img src="./odyssey-express.jpg" onerror="handleImgError(this, 'odyssey-express.jpg')"
+                alt="Odyssey Express 視覺作品" loading="lazy">
+            </div>
+
+            <div class="print-body">
+              <div class="print-meta">
+                <span>04 / VISUAL EXPERIMENT</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <h3>視覺實驗</h3>
+              <p>探索不同的構圖、色彩與視覺表現方式。</p>
+              <div class="print-tags">
+                <span>Experiment</span>
+                <span>Visual Art</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 05｜生活紀錄 DIARY ===== -->
+    <section id="diary">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-num">05</span>
+          <div>
+            <div class="eyebrow">SCRAPBOOK &amp; DIARY</div>
+            <h2 class="section-title">生活紀錄 <em>Scrapbook</em></h2>
+          </div>
+        </div>
+
+        <div class="scrapbook-grid">
+
+          <!-- 喜歡的音樂 -->
+          <article class="scrap-panel panel-music">
+            <span class="masking-tape tape-a" aria-hidden="true"></span>
+            <div class="panel-kicker">MUSIC · 喜歡的音樂</div>
+            <h3>獨立樂團 Indie Bands</h3>
+            <p>喜歡在畫圖與發想劇本時播放獨立樂團的歌曲，讓旋律帶動畫面節奏。</p>
+
+            <a class="record-card" href="https://youtu.be/zSFBG6eM17w?si=1yF0bi-xIPFhgUPL" target="_blank"
+              rel="noopener noreferrer">
+              <div class="record-thumb">
+                <img src="https://img.youtube.com/vi/zSFBG6eM17w/mqdefault.jpg" alt="推薦音樂 YouTube 縮圖" loading="lazy">
+              </div>
+              <div class="record-info">
+                <span class="record-label">SIDE A · YOUTUBE PICK</span>
+                <strong>點擊聆聽推薦曲目 ↗</strong>
+              </div>
+            </a>
+          </article>
+
+          <!-- 喜歡的動畫 / 電影 -->
+          <article class="scrap-panel panel-anime">
+            <div class="panel-kicker">ANIMATION &amp; FILM · 喜歡的動畫與電影</div>
+            <h3>獨立動畫與強烈風格敘事</h3>
+            <div class="clipping-list">
+              <span class="clipping">Helluva Boss</span>
+              <span class="clipping">悟空小俠</span>
+              <span class="clipping">探險活寶</span>
+              <span class="clipping">蜘蛛人宇宙</span>
+              <span class="clipping">驚奇數位馬戲團</span>
+              <span class="clipping dashed">各類獨立動畫</span>
+            </div>
+          </article>
+
+          <!-- 喜歡的遊戲 -->
+          <article class="scrap-panel panel-games">
+            <div class="panel-kicker">GAMES · 喜歡的遊戲</div>
+            <h3>復古美術與視覺敘事</h3>
+            <div class="clipping-list">
+              <span class="clipping warm">重返未來：1999</span>
+              <span class="clipping warm">視覺文字小說</span>
+            </div>
+            <p class="panel-sub">偏愛擁有獨特復古美術、強烈角色塑造與沉浸式劇本的作品。</p>
+          </article>
+
+          <!-- 喜歡的事物 -->
+          <article class="scrap-panel panel-things">
+            <div class="panel-kicker">FAVORITE THINGS · 喜歡的事物</div>
+            <ul class="collector-list">
+              <li>
+                <span class="col-emoji" aria-hidden="true">🦄</span>
+                <div>
+                  <strong>獨角獸</strong>
+                  <small>代表獨特、純粹與屬於自己的信念</small>
+                </div>
+              </li>
+              <li>
+                <span class="col-emoji" aria-hidden="true">🪲</span>
+                <div>
+                  <strong>昆蟲</strong>
+                  <small>著迷於自然界精巧的紋理與結構</small>
+                </div>
+              </li>
+              <li>
+                <span class="col-emoji" aria-hidden="true">☁️</span>
+                <div>
+                  <strong>雲</strong>
+                  <small>看天空時最自由、千變萬化的靈感</small>
+                </div>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06｜未來目標 GOALS ===== -->
+    <section id="goals">
+      <div class="container reveal">
+
+        <div class="section-header">
+          <span class="section-num">06</span>
+          <div>
+            <div class="eyebrow">LOOKING AHEAD</div>
+            <h2 class="section-title">未來目標 <em>Roadmap</em></h2>
+          </div>
+        </div>
+
+        <div class="tickets-grid">
+
+          <article class="vintage-ticket">
+            <div class="ticket-top">
+              <span>ADMIT ONE</span>
+              <span>GOAL 01</span>
+            </div>
+            <h3>完成大學學業</h3>
+            <p>
+              目前專注於完成多媒體動畫系學業，在專題與團隊合作中累積更紮實的分鏡、編劇與美術統籌經驗。
+            </p>
+            <div class="ticket-code">STAGE // CURRENT</div>
+          </article>
+
+          <article class="vintage-ticket">
+            <div class="ticket-top">
+              <span>ADMIT ONE</span>
+              <span>GOAL 02</span>
+            </div>
+            <h3>從事美術設計</h3>
+            <p>
+              未來希望能進入美術設計相關領域工作，發揮擅長的角色設定、美編排版與風格監督能力。
+            </p>
+            <div class="ticket-code">STAGE // CAREER</div>
+          </article>
+
+          <article class="vintage-ticket">
+            <div class="ticket-top">
+              <span>ADMIT ONE</span>
+              <span>GOAL 03</span>
+            </div>
+            <h3>完成原創故事</h3>
+            <p>
+              將腦海裡累積許久的奇想與角色整理成型，親手寫下並繪製一部屬於自己的完整原創故事。
+            </p>
+            <div class="ticket-code">STAGE // DREAM</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 07｜聯絡資訊 CONTACT ===== -->
+    <section id="contact">
+      <div class="container reveal">
+
+        <div class="airmail-postcard">
+          <div class="postcard-inner">
+            <div class="postcard-stamp" aria-hidden="true">
+              <span>POSTAGE</span>
+              <strong>JUNMI ✳</strong>
+              <small>TAIWAN</small>
+            </div>
+
+            <div class="eyebrow">07 / LET'S CONNECT</div>
+            <h2 class="section-title">聯絡資訊 <em>Postcard</em></h2>
+
+            <p>
+              如果你對我的作品、角色設計或美術合作有興趣，歡迎寄信或透過 Instagram 與我聯繫！
+            </p>
+
+            <div class="contact-links">
+              <a href="mailto:junmiouo@gmail.com" class="btn btn-primary">
+                ✉ junmiouo@gmail.com
+              </a>
+
+              <a href="https://www.instagram.com/junmiuvu/" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary">
+                📷 Instagram: @Junmiuvu
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 作品彈窗 Modal ===== -->
+  <div class="modal-overlay" id="workModal" onclick="closeWorkModalOnOverlay(event)" role="dialog" aria-modal="true"
+    aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close-btn" onclick="closeWorkModal()" aria-label="關閉作品視窗">&times;</button>
+
+      <div class="eyebrow" id="modalCategory">PROJECT DETAILS</div>
+      <h2 id="modalTitle" class="modal-title">作品名稱</h2>
+      <div id="modalTags" class="tag-container"></div>
+
+      <div id="modalMedia">
+        <!-- 動態置入 YouTube 播放器或作品圖片 -->
+      </div>
+
+      <p class="modal-description" id="modalDesc">作品詳細描述內容...</p>
+
+      <div class="modal-meta">
+        <div class="modal-meta-item">
+          <strong>使用工具：</strong><span id="modalTools">Clip Studio Paint, After Effects</span>
+        </div>
+        <div class="modal-meta-item">
+          <strong>創作角色：</strong><span id="modalRole">角色設計 / 動畫製作</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 回頂部按鈕 -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+    aria-label="回到最上方">↑</button>
+
+  <!-- ===== 頁尾 ===== -->
+  <footer>
+    <p>
+      © <span id="year"></span>
+      <strong>潘湜瀅 / 君米 JUNMI</strong> · 我屬於我自己人生中的獨角
+    </p>
+  </footer>
+
+  <!-- 外部腳本 (JavaScript) -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
